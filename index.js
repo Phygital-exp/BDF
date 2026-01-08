@@ -11,10 +11,10 @@ const AUTH_HEADERS = {
 
 app.use(cors());
 
-app.get("/api/pork/pdv", async (req, res) => {
+app.get("/api/bdf/pdv", async (req, res) => {
     try {
         const response = await fetch(
-            "https://botai.smartdataautomation.com/api_backend_ai/dinamic-db/report/119/Pork_PDVs",
+            "https://botai.smartdataautomation.com/api_backend_ai/dinamic-db/report/119/PDV_BDF",
             { headers: AUTH_HEADERS }
         );
         
@@ -35,8 +35,8 @@ app.get("/api/pork/pdv", async (req, res) => {
         const data = await response.json();
         res.json(data);
     } catch (err) {
-        console.error("Error en el proxy pork PDV:", err);
-        res.status(500).json({ error: "Error al obtener datos de pork PDV", details: err.message });
+        console.error("Error en el proxy BDF PDV:", err);
+        res.status(500).json({ error: "Error al obtener datos de BDF PDV", details: err.message });
     }
 });
 
