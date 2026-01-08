@@ -59,7 +59,7 @@ function renderResults(results) {
         results.forEach(result => {
             output += `
                 <div class="result-item">
-                    <h3>${result['NOMBRE PDV']}</h3>
+                    <h3>${result.CUSTOMER}</h3>
                     <ul>
                         <li><strong>ID:</strong> ${result.UNICO || 'N/A'}
                         <i class="material-icons copy-icon" onclick="copyToClipboard('${result.UNICO}')">content_copy</i>
