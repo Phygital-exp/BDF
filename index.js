@@ -11,7 +11,7 @@ const AUTH_HEADERS = {
 
 app.use(cors());
 
-app.get("/api/bdf/pdv", async (req, res) => {
+app.get("/api/BDF/pdv", async (req, res) => {
     try {
         const response = await fetch(
             "https://botai.smartdataautomation.com/api_backend_ai/dinamic-db/report/119/PDV_BDF",
