@@ -2,7 +2,7 @@ let debounceTimer;
 let fuse = null;
 let fullData = [];
 
-const API_URL = 'https://bdf-production.up.railway.app/api/bdf/pdv';
+const API_URL = 'https://bdf-production.up.railway.app/api/BDF/pdv';
 
 // Cargar los datos de la API
 async function loadData() {
@@ -26,7 +26,7 @@ async function loadData() {
 // Inicializar Fuse.js para búsqueda rápida
 function initializeFuse() {
     const options = {
-        keys: ['ID','NOMBRE PDV','UNICO','CIUDAD','RETAIL_ENVIRONMENT','CUSTOMER','CADENA','REGION'],
+        keys: ['UNICO','NOMBRE PDV','UNICO','CIUDAD','RETAIL_ENVIRONMENT','CUSTOMER','CADENA','REGION'],
         threshold: 0.3,
     };
     fuse = new Fuse(fullData, options);
@@ -61,10 +61,9 @@ function renderResults(results) {
                 <div class="result-item">
                     <h3>${result['NOMBRE PDV']}</h3>
                     <ul>
-                        <li><strong>ID:</strong> ${result.ID || 'N/A'}
-                        <i class="material-icons copy-icon" onclick="copyToClipboard('${result.ID}')">content_copy</i>
+                        <li><strong>ID:</strong> ${result.UNICO || 'N/A'}
+                        <i class="material-icons copy-icon" onclick="copyToClipboard('${result.UNICO}')">content_copy</i>
                         </li>
-                        <li><strong>ÚNICO:</strong> ${result.UNICO || 'N/A'}</li>
                         <li><strong>Ciudad:</strong> ${result.CIUDAD || 'N/A'}</li>
                         <li><strong>Retail Environment:</strong> ${result.RETAIL_ENVIRONMENT || 'N/A'}</li>
                         <li><strong>Customer:</strong> ${result.CUSTOMER || 'N/A'}</li>
